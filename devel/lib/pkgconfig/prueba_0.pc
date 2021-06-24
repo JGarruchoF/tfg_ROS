@@ -1,0 +1,8 @@
+prefix=/home/jgarruchof/tfg/devel
+
+Name: prueba_0
+Description: Description of prueba_0
+Version: 0.0.0
+Cflags: -I/home/jgarruchof/tfg/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

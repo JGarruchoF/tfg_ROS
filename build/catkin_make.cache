@@ -1,0 +1,2 @@
+tfg_javgarfer
+-DCATKIN_DEVEL_PREFIX=/home/jgarruchof/tfg_ws/devel -DCMAKE_INSTALL_PREFIX=/home/jgarruchof/tfg_ws/install -G Unix Makefiles
