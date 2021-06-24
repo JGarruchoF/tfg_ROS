@@ -4,7 +4,7 @@
 
 
 
- 	<machine name="client" address="rosclient" user="jgarruchof" env-loader="/opt/ros/noetic/env.sh" password="StepInside"/>
+ 	<machine name="client" address="rosclient" user="jgarruchof" env-loader="/opt/ros/noetic/env.sh"/>
 
 	<include file="$(find tfg_javgarfer)/launch/maquinas.launch">
        <arg name="numero_maquinas" value="$(eval arg('numero_maquinas'))"/>
