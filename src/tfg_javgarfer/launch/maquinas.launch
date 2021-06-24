@@ -4,13 +4,13 @@
 
 
 
-	<include file="$(find prueba_0)/launch/maquinas.launch" if="$(eval arg('numero_maquinas') - 1 > 0)">
+	<include file="$(find tfg_javgarfer)/launch/maquinas.launch" if="$(eval arg('numero_maquinas') - 1 > 0)">
        <arg name="numero_maquinas" value="$(eval arg('numero_maquinas') - 1)"/>
    </include>
 
 
 
-	<machine name="$(eval arg('numero_maquinas'))" address="rosclient" env-loader="/opt/ros/noetic/env.sh" user="jgarruchof" password="StepInside"/>
+	<machine name="m$(arg numero_maquinas)" address="rosserver$(arg numero_maquinas)" env-loader="/opt/ros/noetic/env.sh" user="jgarruchof" password="tfg"/>
 
 
 

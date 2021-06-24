@@ -3,7 +3,7 @@
 
 
 
-	<include file="$(find prueba_0)/launch/image_procs.launch" if="$(eval arg('numero_maquinas') - 1 > 0)">
+	<include file="$(find tfg_javgarfer)/launch/image_procs.launch" if="$(eval arg('numero_maquinas') - 1 > 0)">
        <arg name="numero_maquinas" value="$(eval arg('numero_maquinas') - 1)"/>
    </include>
 
@@ -15,11 +15,6 @@
 
 	<node  machine="m$(arg numero_maquinas)" name="republish" pkg="image_transport" type="republish" ns="/stereo/$(arg numero_maquinas)/right" 
 		args="compressed in:=image_raw raw out:=image_raw" ></node>
-<!-- 		<param name="in_transport" value="compressed" />
-		<param name="in" value="/image_raw" />
-		<param name="out_transport" value="raw" />
-		<param name="out" value="/image_raw" /> -->
-
 
 
 	<node  machine="m$(arg numero_maquinas)" name="stereo_image_proc$(arg numero_maquinas)" pkg="stereo_image_proc" type="stereo_image_proc" ns="/stereo/$(arg numero_maquinas)">
@@ -32,13 +27,6 @@
 		<param name="speckle_size" value="1000"/>
 		<param name="approximate_sync" value="true" />
 
-<!-- 		<remap from="/stereo/left/image_raw" to="/stereo/$(arg numero_maquinas)/left/image_raw"/>
-		<remap from="/stereo/left/camera_info" to="/stereo/$(arg numero_maquinas)/left/camera_info"/>
-		<remap from="/stereo/right/image_raw" to="/stereo/$(arg numero_maquinas)/right/image_raw"/>
-		<remap from="/stereo/right/camera_info" to="/stereo/$(arg numero_maquinas)/right/camera_info"/> -->
-<!-- 		<remap from="/stereo/left/image_rect" to="/stereo/$(arg numero_maquinas)/left/image_rect" />
-		<remap from="/stereo/right/image_rect" to="/stereo/$(arg numero_maquinas)/right/image_rect" /> -->
-
 
 		<remap from="/stereo/$(arg numero_maquinas)/left/image_rect" to="/stereo/left/image_rect" />
 		<remap from="/stereo/$(arg numero_maquinas)/right/image_rect" to="/stereo/right/image_rect" />
@@ -50,24 +38,6 @@
  		<remap from="/stereo/$(arg numero_maquinas)/points2" to="/stereo/right/points2" />
 
 	</node>
-
-
-<!-- 		<node  machine="m$(arg numero_maquinas)" name="compress" pkg="image_transport" type="republish" ns="/stereo/$(arg numero_maquinas)/left" 
-		args="raw in:=image_rect compressed out:=image_rect" ></node>
-		<node  machine="m$(arg numero_maquinas)" name="compress" pkg="image_transport" type="republish" ns="/stereo/$(arg numero_maquinas)/right" 
-		args="raw in:=image_rect compressed out:=image_rect" ></node> -->
-
-<!-- 		<node  machine="m$(arg numero_maquinas)" name="compress_d$(arg numero_maquinas)" pkg="image_transport" type="republish" ns="/stereo/$(arg numero_maquinas)" 
-		args="raw in:=disparity compressed out:=disparity" ></node> -->
-
-
-<!-- 		<node name="republish_l$(arg numero_maquinas)" pkg="image_transport" type="republish" ns="/stereo" 
-		args="compressed in:=$(arg numero_maquinas)/left/image_rect raw out:=left/image_rect" ></node>
-		<node name="republish_r$(arg numero_maquinas)" pkg="image_transport" type="republish" ns="/stereo" 
-		args="compressed in:=$(arg numero_maquinas)/right/image_rect raw out:=right/image_rect" ></node>
- -->
-<!-- 		<node name="republish_d$(arg numero_maquinas)" pkg="image_transport" type="republish" ns="/stereo" 
-		args="compressed in:=/$(arg numero_maquinas)/disparity raw out:=disparity" ></node> -->
 
 
 </launch>
