@@ -2,22 +2,17 @@
 	<arg name="numero_maquinas" default="2"/>
 
 
-
-	
-<!-- 	<machine name="m1" address="localhost" env-loader="/home/jgarruchof/ros_ws/devel/env.sh" user="jgarruchof" password="StepInside" default="true"/>
- -->	
-
  	<machine name="client" address="rosclient" user="jgarruchof" env-loader="/opt/ros/noetic/env.sh"/>
 	<machine name="m1" address="rosserver1" user="jgarruchof" env-loader="/opt/ros/noetic/env.sh"/>
 	<machine name="m2" address="rosserver2" user="jgarruchof" env-loader="/opt/ros/noetic/env.sh"/>
 
 
-<!-- 	<node machine="client" name="usb_cam" pkg="usb_cam" type="usb_cam_node">
+ 	<node machine="client" name="usb_cam" pkg="usb_cam" type="usb_cam_node">
 		<param name="pixel_format" value="yuyv"/>
 		<param name="image_width" value="1600"/>
 		<param name="image_height" value="800"/>
 		<param name="framerate" value="3"/>
-	</node> -->
+	</node>
 
 	<node name="cam2stereo" pkg="prueba_0" type="cam2stereoParallelCompressed.py" args="$(arg numero_maquinas)"/> <!-- args="$(arg numero_maquinas)" -->
 	
@@ -27,14 +22,6 @@
        <arg name="numero_maquinas" value="$(eval arg('numero_maquinas'))"/>
    </include>
 
-
-
-
-
-
-
-<!-- <node name="disparity_merger" pkg="prueba_0" type="disparityMerger.py"/>
- -->
 
 
 <!--
